@@ -1,0 +1,23 @@
+@keyframes flash {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.flash-animation {
+  opacity: 1; 
+  animation-name: flash;
+  animation-duration: 3s;
+    animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.delay-1 {
+  animation-delay: 1s;
+}
+
+.delay-2 {
+  animation-delay: 2s;
+}
