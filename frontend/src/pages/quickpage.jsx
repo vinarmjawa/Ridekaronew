@@ -48,63 +48,79 @@ gsap.to(panelcloseRef.current,{
   }
 },[panelOpen])
 useGSAP(function(){
-if(vehiclepanel){
-  gsap.to(vehiclepanelref.current, {
-  transform: 'translateY(0)'
-})
-
-}
-else{
+  if(vehiclepanel){
+    gsap.to(vehiclepanelref.current, {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.3
+    })
+  } else {
     gsap.to(vehiclepanelref.current,{
-    transform:'translateY(100%)'
-  })
-}
+      y: "100%",
+      autoAlpha: 0,
+      duration: 0.3
+    })
+  }
 },[vehiclepanel])
-useGSAP(function(){
-if(ConfirmRidePanel){
-  gsap.to(ConfirmRidePanelref.current, {
-  transform: 'translateY(0)'
-})
 
-}
-else{
+useGSAP(function(){
+  if(ConfirmRidePanel){
+    gsap.to(ConfirmRidePanelref.current, {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.3
+    })
+  } else {
     gsap.to(ConfirmRidePanelref.current,{
-    transform:'translateY(100%)'
-  })
-}
+      y: "100%",
+      autoAlpha: 0,
+      duration: 0.3
+    })
+  }
 },[ConfirmRidePanel])
-useGSAP(function(){
-if(vehiclefound){
-  gsap.to(vechilefoundref.current, {
-  transform: 'translateY(0)'
-})
 
-}
-else{
+useGSAP(function(){
+  if(vehiclefound){
+    gsap.to(vechilefoundref.current, {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.3
+    })
+  } else {
     gsap.to(vechilefoundref.current,{
-    transform:'translateY(100%)'
-  })
-}
+      y: "100%",
+      autoAlpha: 0,
+      duration: 0.3
+    })
+  }
 },[vehiclefound])
-useGSAP(function(){
-if(waiting){
-  gsap.to(waitingdriver.current, {
-  transform: 'translateY(0)'
-})
 
-}
-else{
+useGSAP(function(){
+  if(waiting){
+    gsap.to(waitingdriver.current, {
+      y: 0,
+      autoAlpha: 1,
+      duration: 0.3
+    })
+  } else {
     gsap.to(waitingdriver.current,{
-    transform:'translateY(100%)'
-  })
-}
+      y: "100%",
+      autoAlpha: 0,
+      duration: 0.3
+    })
+  }
 },[waiting])
+
 return (
   
 
-    <div className="flex min-h-screen items-center justify-center bg-white p-8 ">
+    <div className="flex min-h-screen items-center justify-center bg-white rounded-xl p-8 ">
          <div className="absolute top-4 left-4 z-10  p-4">
         <img src='src/assets/output-onlinepngtools.png' alt="logo" className="w-36  h-10" />
+       
+      </div>
+       <div className="absolute top-4 right-4 z-10 text-gray-800 text-2xl p-4">
+       <Link to='/userlogout'><i className="ri-logout-box-r-line"></i></Link>
        
       </div>
       <div className="relative w-full max-w-md mx-auto">
@@ -192,7 +208,7 @@ return (
       <div  ref={vechilefoundref} className='absolute z-30 w-full   translate-y-full  bottom-0 bg-white px-3 py-8'>
             <Lookingfordriver setvehiclefound={setvehiclefound}></Lookingfordriver>
       </div>
-       <div ref={waitingdriver} className='absolute  translate-y-full w-full  bottom-0 bg-white px-3 py-8'>
+       <div ref={waitingdriver} className='absolute z-30 translate-y-full w-full  bottom-0 bg-white px-3 py-8'>
             <Waiting  setwaiting={setwaiting}></Waiting>
       </div>
     </div>

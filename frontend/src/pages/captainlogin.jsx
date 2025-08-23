@@ -43,7 +43,7 @@ const { captain, setCaptain } = useContext(captainDatacontext);
         {/* Form Card */}
         <div className='flex-grow flex items-center justify-center '>
           <div className="w-full max-w-sm bg-white p-8 rounded-2xl shadow-lg">
-        <form className="  items-center shadow-lg w-full" onSubmit={(e) => {
+        <form className="  items-center  w-full" onSubmit={(e) => {
           submitHandler(e)
         }}>
           

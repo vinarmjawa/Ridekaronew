@@ -23,7 +23,7 @@ app.use(express.json());
 app.use('/rides', rideroutes);
 app.use('/captains',captainroutes);
 app.use('/users',userroutes);
-app.use(cors());
+
 app.get('/',(req,res)=>{
     res.send('hello world');
 });

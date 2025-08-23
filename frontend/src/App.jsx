@@ -17,6 +17,8 @@ import Quickpage from './pages/quickpage';
 import CaptainRides from './pages/captainrides';
 import Captainquick from './pages/captainquick';
 import Riding from './pages/quickriding';
+import Finalpage from './pages/finalpage';
+import Captainquickride from './pages/captainquickride';
 const App = () => {
 
   
@@ -34,9 +36,13 @@ const App = () => {
     <Route path='/home' element={<UserProtectWrapper><Home /></UserProtectWrapper>} />
     <Route path='/userlogout' element={<UserProtectWrapper><Userlogout /></UserProtectWrapper>} />
     <Route path='/userriding' element={<UserProtectWrapper><Riding></Riding></UserProtectWrapper>}></Route>
+    <Route path='/summary' element={<UserProtectWrapper><Finalpage></Finalpage></UserProtectWrapper>}></Route>
     <Route path='/captainhome' element={
       <CaptainProtectWrapper><Captainhome /></CaptainProtectWrapper>
     }/>
+    <Route path='/quickcab' element={<CaptainProtectWrapper>
+      <Captainquickride></Captainquickride>
+    </CaptainProtectWrapper>}></Route>
     <Route path='/captainlogout' element={<CaptainProtectWrapper><CaptainLogout /></CaptainProtectWrapper>} />
     <Route path='/captainpage' element={<CaptainProtectWrapper><Captainpage /></CaptainProtectWrapper>} />
     <Route path='/userpage' element={<UserProtectWrapper><Userpage /></UserProtectWrapper>} />

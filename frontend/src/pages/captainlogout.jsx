@@ -20,12 +20,16 @@ const CaptainLogout = () => {
     .then((response) => {
       if (response.status === 200) {
         localStorage.removeItem('captainToken');
+        localStorage.removeItem('timeOnline');
+        localStorage.removeItem("startTime");
+        localStorage.removeItem("rides")
         navigate('/captainlogin');
       }
     })
     .catch((err) => {
       console.error('Logout failed:', err);
       localStorage.removeItem('captainToken');
+
       navigate('/captainlogin');
     });
   }, []);

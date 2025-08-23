@@ -176,9 +176,9 @@ const { captain, setCaptain } = useContext(captainDatacontext)
     onChange={(e) => setVehicleType(e.target.value)}
   >
     <option value="">Select Vehicle Type</option>
-    <option value="car">Car</option>
-    <option value="auto">Auto</option>
-    <option value="motorcycle">Moto</option>
+    <option value="car">car</option>
+    <option value="auto">auto</option>
+    <option value="motorcycle">motorcycle</option>
   </select>
 </div>
 
