@@ -1,6 +1,5 @@
-// backend/services/ride.service.js
-const Ride = require('../models/Ride.model');
 
+const Ride = require('../models/ride.model');
 module.exports.publishRide = async (rideData) => {
    
     try {

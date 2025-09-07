@@ -1,14 +1,17 @@
 import React, { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Finishcap from "../components/Finishcap";
+import LiveTracking from "../components/Livetracking";
 
 const Captainquickride = () => {
   const [finishRidePanel, setFinishRidePanel] = useState(false);
   const finishRidePanelRef = useRef(null);
   const overlayRef = useRef(null);
-
+  const location = useLocation();
+  const rideData = location.state?.ride
+     const distanceInKm = rideData ? (rideData.distanceTime.distance.value / 1000).toFixed(1) : 0;
   useGSAP(
     () => {
       if (finishRidePanel) {
@@ -60,11 +63,7 @@ const Captainquickride = () => {
       <div className="flex h-screen w-full max-w-md flex-col overflow-hidden rounded-2xl bg-white shadow-2xl border border-gray-100">
         {/* Map Section */}
         <div className="relative h-4/5 w-full">
-          <img
-            src="src/assets/map.png"
-            alt="Map of a city"
-            className="h-full w-full object-cover"
-          />
+           <LiveTracking></LiveTracking>
           <Link
             to="/captainpage"
             className="absolute top-3 right-3 z-50 rounded-full bg-green-500 p-3 text-white shadow-lg hover:bg-green-600 transition"
@@ -73,7 +72,7 @@ const Captainquickride = () => {
           </Link>
         </div>
 
-        {/* Bottom Trigger Bar */}
+   
         <div
           className="h-1/5 p-6 flex items-center justify-between relative bg-yellow-400 pt-10 cursor-pointer"
           onClick={() => setFinishRidePanel(true)}
@@ -81,7 +80,7 @@ const Captainquickride = () => {
           <h5 className="p-1 text-center w-[90%] absolute top-0">
             <i className="text-3xl text-gray-800 ri-arrow-up-wide-line"></i>
           </h5>
-          <h4 className="text-xl text-gray-800 font-semibold">4 KM away</h4>
+          <h4 className="text-xl text-gray-800 font-semibold">{distanceInKm } KM away</h4>
           <button className="bg-green-600 text-white font-semibold p-3 px-10 rounded-lg">
             Complete Ride
           </button>
@@ -102,7 +101,7 @@ const Captainquickride = () => {
           bg-white p-4 py-10 rounded-t-2xl "
         style={{ transform: "translateY(100%)" }} // hidden initially
       >
-        <Finishcap setFinishRidePanel={setFinishRidePanel} />
+        <Finishcap setFinishRidePanel={setFinishRidePanel} ride={rideData} distanceInKm={distanceInKm} />
       </div>
     </div>
   );

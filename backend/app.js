@@ -1,5 +1,4 @@
 const dotenv = require('dotenv');
-
 dotenv.config(); 
 const express = require('express');
 const app = express();
@@ -8,7 +7,9 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser')
 const userroutes = require('./routes/user.routes');
 const rideroutes = require('./routes/ride.routes');
-const captainroutes = require('./routes/driver.routes')
+const captainroutes = require('./routes/driver.routes');
+const maproutes = require('./routes/map.routes');
+const quickride = require('./routes/quickride')
 connectToDb();
 app.use(cors({
   origin: 'http://localhost:5173',
@@ -23,7 +24,8 @@ app.use(express.json());
 app.use('/rides', rideroutes);
 app.use('/captains',captainroutes);
 app.use('/users',userroutes);
-
+app.use('/maps',maproutes);
+app.use('/quickride',quickride);
 app.get('/',(req,res)=>{
     res.send('hello world');
 });
