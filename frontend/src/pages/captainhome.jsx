@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
+import logo from '../assets/output-onlinepngtools.png';
 const PublishRideForm = () => {
     const [startLocation, setStartLocation] = useState('');
     const [endLocation, setEndLocation] = useState('');
@@ -70,7 +70,7 @@ const Captainhome = () => {
   return (
     <div className="min-h-screen bg-gray-100 justify-start  flex flex-col items-center p-4">
         <div className="absolute top-0 left-0 p-4">
-        <img src='src/assets/output-onlinepngtools.png' alt="logo" className="w-36 h-10" />
+        <img src={logo} alt="logo" className="w-36 h-10" />
       </div>
       <h1 className="text-4xl text-gray-800 font-bold my-8">Captain Dashboard</h1>
       <PublishRideForm />

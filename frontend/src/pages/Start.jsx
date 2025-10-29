@@ -3,6 +3,7 @@ import React from 'react'
 import { RiTimer2Line, RiShieldCheckLine, RiPriceTag3Line } from 'react-icons/ri';
 import backgroundImage from '../assets/Gemini_Generated_Image_4x0djv4x0djv4x0d.png';
 import { Link } from 'react-router-dom';
+import logo from '../assets/logo.png';
 const Start = () => {
   return (
      <div
@@ -10,7 +11,7 @@ const Start = () => {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="pt-10 ">
-        <img className="ml-16 w-32 h-10" src='/src/assets/logo.png' alt="App Logo" />
+        <img className="ml-16 w-32 h-10" src={logo} alt="App Logo" />
       </div>
 
  <div className="flex-grow flex flex-col justify-center items-center px-4 text-white text-center">

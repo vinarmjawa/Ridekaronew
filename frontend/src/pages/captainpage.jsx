@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import logo from '../assets/output-onlinepngtools.png';
 const Captainpage = () => {
   
   return (
     <div className="flex flex-col items-center justify-start min-h-screen bg-gray-100 p-6 relative">
       {/* Positioned Logo */}
       <div className="absolute top-0 left-0 p-4">
-        <img src='src/assets/output-onlinepngtools.png' alt="logo" className="w-36 h-10" />
+        <img src={logo} alt="logo" className="w-36 h-10" />
       </div>
 
       <div className="text-center mt-16">

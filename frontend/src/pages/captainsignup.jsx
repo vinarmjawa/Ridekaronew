@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { captainDatacontext } from '../context/captainContext';
 import axios from 'axios'
 import { useContext } from 'react';
+import logo from '../assets/output-onlinepngtools.png';
 import { useNavigate } from 'react-router-dom';
 const Captainsignup = () => {
 const [firstName, setFirstName] = useState('');
@@ -58,7 +59,7 @@ const { captain, setCaptain } = useContext(captainDatacontext)
             {/* --- Top Section: Logo and Form --- */}
             <div className="justify-start">
 
-                    <img src='src/assets/output-onlinepngtools.png' alt="logo" className="mt-4 mr-4 ml-4 w-36 h-10" />
+                    <img src={logo} alt="logo" className="mt-4 mr-4 ml-4 w-36 h-10" />
               
 
                 {/* Form - no longer a card */}

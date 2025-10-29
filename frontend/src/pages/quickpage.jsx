@@ -3,6 +3,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import 'remixicon/fonts/remixicon.css'
 import Vechilepanel from '../components/Vechilepanel'
+import logo from '../assets/output-onlinepngtools.png';
 import Locationpanel from '../components/Locationpanel';
 import ConfirmRide from '../components/confirmride';
 import Lookingfordriver from '../components/lookingfordriver';
@@ -209,7 +210,7 @@ const QuickPage = () => {
 
     <div className="flex min-h-screen items-center justify-center bg-white rounded-xl p-8 ">
       <div className="absolute top-4 left-4 z-10  p-4">
-        <img src='src/assets/output-onlinepngtools.png' alt="logo" className="w-36  h-10" />
+        <img src={logo} alt="logo" className="w-36  h-10" />
 
       </div>
       <div className="absolute top-4 right-4 z-10 text-gray-800 text-2xl p-4">

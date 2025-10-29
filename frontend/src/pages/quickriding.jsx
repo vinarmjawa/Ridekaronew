@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { SocketContext } from '../context/SocketContext'
 import { useNavigate } from 'react-router-dom'
 import LiveTracking from '../components/Livetracking';
+import logo from '../assets/output-onlinepngtools.png';
 const Riding = () => {
   const location = useLocation();
   const ride = location.state?.ride;
@@ -15,7 +16,7 @@ const Riding = () => {
   return (
     <div className="flex min-h-screen  items-center justify-center bg-white rounded-xl p-8 ">
          <div className="absolute top-4 left-4 z-10  p-4">
-        <img src='src/assets/output-onlinepngtools.png' alt="logo" className="w-36  h-10" />
+        <img src={logo} alt="logo" className="w-36  h-10" />
        
       </div>
 <div className="flex h-screen  w-full max-w-md  flex-col overflow-hidden rounded-xl bg-white shadow-2xl ">

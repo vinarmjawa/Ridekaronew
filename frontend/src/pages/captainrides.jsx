@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-
+import logo from '../assets/output-onlinepngtools.png';
 const CaptainRides = () => {
     const [rides, setRides] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -39,7 +39,7 @@ const CaptainRides = () => {
         
         <div className="min-h-screen bg-gray-100 p-4 sm:p-6 md:p-8">
   <div className="absolute top-0 left-0 p-4">
-        <img src='src/assets/output-onlinepngtools.png' alt="logo" className="w-36 h-10" />
+        <img src={logo} alt="logo" className="w-36 h-10" />
       </div>
             <div className="max-w-4xl mx-auto p-10">
                 <div className="flex justify-between items-center mb-6">

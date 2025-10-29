@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useEffect } from 'react';
-
+import logo from '../assets/output-onlinepngtools.png';
 // A new component for the search form
 const SearchForm = ({ onSearch }) => {
     const [from, setFrom] = useState('');
@@ -132,7 +132,7 @@ const Home = () => {
     return (
         <div className="min-h-screen bg-gray-100 flex flex-col items-center p-10 gap-10">
               <div className="absolute top-0 left-0 p-4">
-        <img src='src/assets/output-onlinepngtools.png' alt="logo" className="w-36 h-10" />
+        <img src={logo} alt="logo" className="w-36 h-10" />
       </div>
             {/* Booked Rides Section */}
             {bookedRides.length > 0 && (

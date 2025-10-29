@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { userDatacontext } from '../context/userContext';
+import logo from '../assets/output-onlinepngtools.png';
 import axios from 'axios';
 const Userlogin = () => {
   const [ email, setEmail ] = useState('');
@@ -45,7 +46,7 @@ const { user, setUser } = useContext(userDatacontext)
       
         {/* Logo */}
         <div className="justify-start">
-          <img src='src/assets/output-onlinepngtools.png' alt="logo" className="mt-4 mr-4 ml-4 w-36 h-10" />
+          <img src={logo} alt="logo" className="mt-4 mr-4 ml-4 w-36 h-10" />
         
 
         {/* Form Card */}

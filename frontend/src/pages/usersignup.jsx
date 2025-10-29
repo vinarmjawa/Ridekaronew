@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { Link ,useNavigate } from 'react-router-dom';
 import { userDatacontext } from '../context/userContext';
 import axios from 'axios';
+import logo from '../assets/output-onlinepngtools.png';
 const Usersignup = () => {
  const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -45,7 +46,7 @@ const Usersignup = () => {
             {/* --- Top Section: Logo and Form --- */}
             <div className="justify-start">
 
-                    <img src='src/assets/output-onlinepngtools.png' alt="logo" className="mt-4 mr-4 ml-4 w-36 h-10" />
+                    <img src={logo} alt="logo" className="mt-4 mr-4 ml-4 w-36 h-10" />
               
 
                 {/* Form - no longer a card */}

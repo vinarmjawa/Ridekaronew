@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { captainDatacontext } from '../context/captainContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import logo from '../assets/output-onlinepngtools.png';
 const Captainlogin = () => {
   const navigate = useNavigate();
    const [ email, setEmail ] = useState('');
@@ -37,7 +38,7 @@ const { captain, setCaptain } = useContext(captainDatacontext);
       
         {/* Logo */}
         <div className="justify-start">
-          <img src='src/assets/output-onlinepngtools.png' alt="logo" className="mt-4 mr-4 ml-4 w-36 h-10" />
+          <img src={logo} alt="logo" className="mt-4 mr-4 ml-4 w-36 h-10" />
         
 
         {/* Form Card */}

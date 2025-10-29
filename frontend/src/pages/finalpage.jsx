@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-
+import logo from '../assets/output-onlinepngtools.png';
 const Finalpage = () => {
   const [feedback, setFeedback] = useState("");
   const location = useLocation();
@@ -9,7 +9,7 @@ const Finalpage = () => {
   return (
        <div className="bg-gray-50 min-h-screen flex flex-col p-4">
         <div className="justify-start">
-          <img src='src/assets/output-onlinepngtools.png' alt="logo" className="mt-4 mr-4 ml-4 w-36 h-10" />
+          <img src={logo} alt="logo" className="mt-4 mr-4 ml-4 w-36 h-10" />
       
         <div className='flex-grow flex items-center justify-center '>
           <div className="w-full items-center max-w-sm bg-white p-8 rounded-2xl shadow">
