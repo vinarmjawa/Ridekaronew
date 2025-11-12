@@ -1,5 +1,5 @@
 
-const Ride = require('../models/ride.model');
+const Ride = require('../models/Ride.model');
 module.exports.publishRide = async (rideData) => {
    
     try {
