@@ -12,7 +12,7 @@ const maproutes = require('./routes/map.routes');
 const quickride = require('./routes/quickride')
 connectToDb();
 app.use(cors({
-  origin: 'https://ridekaronew.vercel.app',
+  origin: 'https://ridekaronew.vercel.app'|| true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
