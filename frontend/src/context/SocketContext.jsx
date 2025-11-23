@@ -4,6 +4,10 @@ import { io } from 'socket.io-client';
 export const SocketContext = createContext();
 
 const socket = io(`${import.meta.env.VITE_BASE_URL}`); // Replace with your server URL
+const socket = io(socketUrl, {
+    transports: ['websocket'], // Force websocket transport to avoid CORS/polling issues in prod
+    withCredentials: true
+});
 
 const SocketProvider = ({ children }) => {
     useEffect(() => {
