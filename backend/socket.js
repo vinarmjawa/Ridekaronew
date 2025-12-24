@@ -9,7 +9,8 @@ function initializeSocket(server) {
         cors: {
             origin: 'https://ridekaronew.vercel.app'|| true,
             methods: [ 'GET', 'POST' ]
-        }
+        },
+        transports: ["websocket", "polling"]
     });
 
     io.on('connection', (socket) => {
