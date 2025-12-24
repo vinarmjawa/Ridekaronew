@@ -1,25 +1,33 @@
+// frontend/src/context/SocketContext.jsx
 import React, { createContext, useEffect } from 'react';
 import { io } from 'socket.io-client';
 
 export const SocketContext = createContext();
 
-const socket = io(`${import.meta.env.VITE_BASE_URL}`); // Replace with your server URL
+// Ensure this points to your RENDER URL (no trailing slash)
+const SOCKET_URL = import.meta.env.VITE_BASE_URL; 
 
+const socket = io(SOCKET_URL, {
+    transports: ["websocket"], // Forces WebSocket only (skips polling)
+    withCredentials: true,
+    autoConnect: true
+});
 
-const SocketProvider = ({ children }) => {
+export const SocketProvider = ({ children }) => {
     useEffect(() => {
-        // Basic connection logic
         socket.on('connect', () => {
-            console.log('Connected to server');
+            console.log('Connected to socket server');
         });
 
-        socket.on('disconnect', () => {
-            console.log('Disconnected from server');
+        socket.on('connect_error', (err) => {
+            console.error('Socket Connection Error:', err.message);
         });
 
+        return () => {
+            socket.off('connect');
+            socket.off('connect_error');
+        };
     }, []);
-
-
 
     return (
         <SocketContext.Provider value={{ socket }}>
@@ -27,5 +35,3 @@ const SocketProvider = ({ children }) => {
         </SocketContext.Provider>
     );
 };
-
-export default SocketProvider;
