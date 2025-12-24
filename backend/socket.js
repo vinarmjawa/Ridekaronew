@@ -7,19 +7,21 @@ let io;
 function initializeSocket(server) {
     io = socketIo(server, {
         cors: {
-            origin: 'https://ridekaronew.vercel.app'|| true,
-            methods: [ 'GET', 'POST' ]
+            // Ensure this matches your Vercel URL exactly (no trailing slash)
+            origin: ["https://ridekaronew.vercel.app", "http://localhost:5173"], 
+            methods: ["GET", "POST"],
+            credentials: true
         },
-        transports: ["websocket", "polling"]
+        // Force these transports for deployment stability
+        transports: ['websocket', 'polling'],
+        allowEIO3: true // Helps with older socket client versions
     });
 
     io.on('connection', (socket) => {
         console.log(`Client connected: ${socket.id}`);
 
-
         socket.on('join', async (data) => {
             const { userId, userType } = data;
-
             if (userType === 'user') {
                 await userModel.findByIdAndUpdate(userId, { socketId: socket.id });
             } else if (userType === 'captain') {
@@ -27,19 +29,13 @@ function initializeSocket(server) {
             }
         });
 
-
         socket.on('update-location-captain', async (data) => {
             const { userId, location } = data;
-
             if (!location || !location.ltd || !location.lng) {
                 return socket.emit('error', { message: 'Invalid location data' });
             }
-
             await captainModel.findByIdAndUpdate(userId, {
-                location: {
-                    ltd: location.ltd,
-                    lng: location.lng
-                }
+                location: { ltd: location.ltd, lng: location.lng }
             });
         });
 
@@ -50,9 +46,6 @@ function initializeSocket(server) {
 }
 
 const sendMessageToSocketId = (socketId, messageObject) => {
-
-console.log(messageObject);
-
     if (io) {
         io.to(socketId).emit(messageObject.event, messageObject.data);
     } else {
